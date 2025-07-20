@@ -160,7 +160,8 @@ def compute_throughput(df, interval_ms=100, pkt_size=None, is_ack=False):
 
 @matplotlib.rc_context(rc=style)
 def plot_single_exp(input_file, output_dir):
-    figsize = get_fig_size(0.7, 0.7)
+    # figsize = get_fig_size(0.7, 0.7)
+    figsize = get_fig_size(1, 1)
     ack_df, tx_df, tdf = parse_pcap(input_file)
     if ack_df is None:
         return
@@ -288,8 +289,9 @@ def process_exp_dir(input_dir, output_dir, exp_dir, files):
     ftag = os.path.basename(fpath).removesuffix(this_ext)
     exp = parse_exp_raw(ftag)
     label = CCA_RENAME[exp["cca"]]
-    figsize = get_fig_size(1, 0.6)
-    figsize = get_fig_size(0.49, 0.49)
+    # figsize = get_fig_size(1, 0.6)
+    # figsize = get_fig_size(0.49, 0.49)
+    figsize = get_fig_size(1, 1)
 
     plot_df(
         tdf,
@@ -362,7 +364,9 @@ def plot_multi_exp(input_dir, output_dir, exts=(".pcap", ".pcap.csv"), agg=""):
         exp_df = exp_df.sort_values(by=["entry_number", "cca", agg])
         # print(exp_df)
         # import ipdb; ipdb.set_trace()
-        figsize = get_fig_size(0.49, 0.49)
+        # figsize = get_fig_size(0.49, 0.49)
+        figsize = get_fig_size(1, 1)
+
         plot_df(
             exp_df,
             "jfi",
@@ -379,7 +383,7 @@ def plot_multi_exp(input_dir, output_dir, exts=(".pcap", ".pcap.csv"), agg=""):
         )
 
         if agg == "rtprop_ratio":
-            exp_df["label"] = "_" + exp_df["label"]
+            # exp_df["label"] = "_" + exp_df["label"]
             rtprop_ratios = sorted(list(exp_df[agg].unique()))
             recs = []
             for x in rtprop_ratios:
@@ -404,7 +408,8 @@ def plot_multi_exp(input_dir, output_dir, exts=(".pcap", ".pcap.csv"), agg=""):
             # legend=False,
             use_entry=True,
         )
-        # Remove cubic from RTT plot as it skews the plot
+
+        # Remove cubic from RTT plot when buffer is 100 BDP as it skews the plot
         exp_df = exp_df[~((exp_df["cca"] == "cubic") & (exp_df["buf_size_bdp"] == 100))]
         plot_df(
             exp_df,
@@ -416,7 +421,7 @@ def plot_multi_exp(input_dir, output_dir, exts=(".pcap", ".pcap.csv"), agg=""):
             group="label",
             figsize=figsize,
             use_markers=True,
-            legend=False,
+            # legend=False,
             use_entry=True,
         )
 
