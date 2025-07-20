@@ -343,7 +343,7 @@ def get_combinations(
                 staggered_start=False,
                 different_rtprop=False,
                 seed=42,
-                duration_s=20,
+                duration_s=60,
                 overlap_duration_s=180,
             ),
         ]

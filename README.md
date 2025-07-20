@@ -6,7 +6,7 @@ Benchmarking congestion control algorithms.
 - Refer `boot.sh` after every boot to set kernel parameters and setup in memory file system for logging. Assumes machine has at least 10GB free memory.
 
 # Expected directory setup outside this repo
-- `../data` (change in common.py)
-- `../figs` (change in common.py)
+- `../data/logs` (change in common.py)
+- `../data/figs` (change in common.py)
 - `../mahimahi-traces` (change in common.py)
 - `../ccas/genericCC` (change in run_experiment.sh)
