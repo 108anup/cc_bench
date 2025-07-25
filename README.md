@@ -20,4 +20,4 @@ and scenarios to run. Think of `sweep.py` as a file you can directly edit to
 - `../data/logs` (change in common.py)
 - `../data/figs` (change in common.py)
 - `../mahimahi-traces` (change in common.py)
-- `../ccas/genericCC` (change in run_experiment.sh)
+- `../ccas/genericCC` (change in run_experiment.sh, setup.sh)
