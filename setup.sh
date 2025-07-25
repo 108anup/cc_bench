@@ -16,7 +16,7 @@ sudo apt install -y autotools-dev autoconf libtool apache2 apache2-dev \
 cur_dir=$(pwd)
 mkdir -p $HOME/opt
 cd $HOME/opt
-git clone git@github.com:ravinet/mahimahi.git
+git clone https://github.com/ravinet/mahimahi.git
 cd mahimahi
 ./autogen.sh
 ./configure
