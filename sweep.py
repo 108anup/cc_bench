@@ -490,6 +490,7 @@ def get_combinations(
         pparams.extend(get_combinations(ExperimentType.different_rtt_sweep_bw))
         pparams.extend(get_combinations(ExperimentType.jitter))
         pparams.extend(get_combinations(ExperimentType.jitter_sweep_bw))
+        pparams.extend(get_combinations(ExperimentType.staggered))
 
     elif experiment_type == ExperimentType.all:
         pparams = []

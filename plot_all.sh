@@ -20,6 +20,9 @@ python parse_pcap.py -i ${LOGS}/${EXP}/different_rtt/ --agg rtprop_ratio
 python parse_pcap.py -i ${LOGS}/${EXP}/jitter_sweep_bw --agg bw_mbps
 python parse_pcap.py -i ${LOGS}/${EXP}/jitter --agg jitter_ms
 
+# Figure 23
+python parse_pcap.py -i ${LOGS}/${EXP}/staggered
+
 # Copying all the relevant figures in one place
 mkdir -p ${FIGS}/${EXP}/evaluation/sweeps/{bw,rtprop,flows,different_rtt,jitter}
 mkdir -p ${FIGS}/${EXP}/evaluation/timeseries
@@ -51,6 +54,9 @@ done
 for cca in reno cubic; do
   cp "${FIGS}/${EXP}/jitter_sweep_bw/bw_ppms[8]-ow_delay_ms[16]-n_flows[3]/bw_ppms[8]-ow_delay_ms[16]-n_flows[3]-buf_size_bdp[3]-cca[${cca}]-cca_param_tag[]-jitter_ms[32]-jitter_ppms[32]-jitter_type[fixed_aggregation]/tcpdump_throughput.pdf" ${FIGS}/${EXP}/evaluation/timeseries/jitter_${cca}.pdf
 done
+
+# Figure 23
+cp ${FIGS}/${EXP}/staggered/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]-buf_size_bdp[100]-cca[frcc]/tcpdump_throughput.pdf ${FIGS}/${EXP}/evaluation/convergence.pdf
 
 exit 0
 }
