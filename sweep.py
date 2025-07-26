@@ -18,7 +18,7 @@ from common import (
 )
 from trace_generator import all_trace
 
-N_PROCESSES = 10
+N_PROCESSES = 8
 
 ALL_CCAS = [
     PartialParams(cca="frcc"),

@@ -12,7 +12,7 @@ sudo modprobe tcp_vegas
 
 # Setup in-memory filesystem for live telemetry
 sudo mkdir -p /mnt/ramdisk
-sudo mount -t tmpfs -o size=10G tmpfs /mnt/ramdisk
+sudo mount -t tmpfs -o size=24G tmpfs /mnt/ramdisk
 
 exit 0
 }
