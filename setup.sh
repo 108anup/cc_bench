@@ -9,20 +9,23 @@ GENERICCC="$REPO/../ccas/genericCC"
 
 # Install mahimahi dependencies
 sudo apt install -y autotools-dev autoconf libtool apache2 apache2-dev \
-    protobuf-compiler libprotobuf-dev libssl-dev xcb libxcb-composite0-dev \
-    libxcb-present-dev libcairo2-dev libpango1.0-dev gnuplot dnsmasq
+  protobuf-c-compiler protobuf-compiler libprotobuf-dev libssl-dev xcb \
+  libxcb-composite0-dev libxcb-present-dev libcairo2-dev libpango1.0-dev \
+  gnuplot dnsmasq
 
 # Install mahimahi
-cur_dir=$(pwd)
-mkdir -p $HOME/opt
-cd $HOME/opt
-git clone https://github.com/ravinet/mahimahi.git
-cd mahimahi
-./autogen.sh
-./configure
-make -j
-sudo make install
-cd $cur_dir
+if command -v mm-delay &>/dev/null; then
+  cur_dir=$(pwd)
+  mkdir -p $HOME/opt
+  cd $HOME/opt
+  git clone https://github.com/ravinet/mahimahi.git
+  cd mahimahi
+  ./autogen.sh
+  ./configure
+  make -j
+  sudo make install
+  cd $cur_dir
+fi
 
 # Setup other CCAs (copa)
 ## Comment out copa (genericcc_markovian) in sweep.py if you don't want to setup and run copa.
