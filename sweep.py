@@ -18,6 +18,8 @@ from common import (
 )
 from trace_generator import all_trace
 
+N_PROCESSES = 10
+
 ALL_CCAS = [
     PartialParams(cca="frcc"),
 
@@ -352,6 +354,7 @@ def get_combinations(
     elif experiment_type == ExperimentType.debug_all:
         debug_settings = [
             PartialParams(
+                experiment_type=ExperimentType.debug_all,
                 bw_ppms=4,
                 ow_delay_ms=25,
                 buf_size_bdp=100,
@@ -509,7 +512,7 @@ def get_combinations(
 def main(args):
     pool = None
     if args.parallel:
-        pool = multiprocessing.Pool(20)
+        pool = multiprocessing.Pool(N_PROCESSES)
 
     pparams = get_combinations(args.experiment_type)
     run_combinations(pparams, args.output, pool)
