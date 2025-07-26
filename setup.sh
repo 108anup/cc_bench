@@ -14,7 +14,7 @@ sudo apt install -y autotools-dev autoconf libtool apache2 apache2-dev \
   gnuplot dnsmasq
 
 # Install mahimahi
-if command -v mm-delay &>/dev/null; then
+if ! command -v mm-delay &> /dev/null; then
   cur_dir=$(pwd)
   mkdir -p $HOME/opt
   cd $HOME/opt
