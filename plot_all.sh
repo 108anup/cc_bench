@@ -56,7 +56,7 @@ for cca in reno cubic; do
 done
 
 # Figure 23
-cp ${FIGS}/${EXP}/staggered/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]-buf_size_bdp[100]-cca[frcc]/tcpdump_throughput.pdf ${FIGS}/${EXP}/evaluation/convergence.pdf
+cp ${FIGS}/${EXP}/staggered/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]/bw_ppms[8]-ow_delay_ms[25]-n_flows[8]-buf_size_bdp[100]-cca[frcc]-cca_param_tag[]/tcpdump_throughput.pdf ${FIGS}/${EXP}/evaluation/convergence.pdf
 
 exit 0
 }
