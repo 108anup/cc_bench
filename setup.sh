@@ -35,7 +35,7 @@ makepp
 cd $REPO
 
 # Setup and configure tools
-sudo apt install iperf3 tcpdump
+sudo apt install iperf3 tcpdump tshark
 
 # Allow tcmpdump to capture packets without sudo
 sudo setcap cap_net_raw,cap_net_admin=eip $(which tcpdump) 

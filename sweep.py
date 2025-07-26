@@ -34,6 +34,7 @@ ALL_CCAS = [
 
 class ExperimentType(Enum):
     debug = "debug"
+    debug_all = "debug_all"
     sweeps = "sweeps"
     sweep_flows = "sweep_flows"
     sweep_rtprop = "sweep_rtprop"
@@ -347,6 +348,27 @@ def get_combinations(
                 overlap_duration_s=180,
             ),
         ]
+
+    elif experiment_type == ExperimentType.debug_all:
+        debug_settings = [
+            PartialParams(
+                bw_ppms=4,
+                ow_delay_ms=25,
+                buf_size_bdp=100,
+                n_flows=2,
+                jitter_ms=0,
+                jitter_ppms=0,
+                jitter_type="ideal",
+                staggered_start=False,
+                different_rtprop=False,
+                seed=42,
+                duration_s=60,
+                overlap_duration_s=180,
+            ),
+        ]
+        pparams = PartialParams.product(
+            debug_settings, cca_choices
+        )
 
     elif experiment_type == ExperimentType.sweep_rtprop:
         this_ideal_settings = ideal_settings.copy()

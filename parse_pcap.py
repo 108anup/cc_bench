@@ -331,6 +331,7 @@ def plot_multi_exp(input_dir, output_dir, exts=(".pcap", ".pcap.csv"), agg=""):
                 exp_dir = get_dir_without_flow(fpath, this_ext)
                 exp_dirs[exp_dir].append(fpath)
 
+    # import ipdb; ipdb.set_trace()
     pool = mp.Pool()
     process_exp_dir_partial = partial(process_exp_dir, input_dir, output_dir)
     exps = pool.starmap(process_exp_dir_partial, exp_dirs.items())
